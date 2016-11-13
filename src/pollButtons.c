@@ -8,8 +8,7 @@
 #define	NUM_BUTTONS 4u
 
 static struct pollfd s_stPollFds[NUM_BUTTONS];
-static const unsigned int s_kauiButtonIds[NUM_BUTTONS] = { 412, 413, 414, 415 }\
-;
+static const unsigned int s_kauiButtonIds[NUM_BUTTONS] = { 412, 413, 414, 415 };
 static unsigned	int s_auiButtonValues[NUM_BUTTONS] = { 1, 1, 1, 1 };
 static char s_aacPathToValueFile[NUM_BUTTONS][100];
 
