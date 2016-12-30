@@ -1,0 +1,46 @@
+diff --git a/ctris.h b/ctris.h
+index 0e412d0..cbc2ac7 100644
+--- a/ctris.h
++++ b/ctris.h
+@@ -16,8 +16,8 @@
+ #include <time.h>
+ 
+ #define VERSION "v0.42" // version info
+-#define HEIGHT 24 // height of the screen
+-#define WIDTH 80 // width of the screen
++#define HEIGHT 20 // height of the screen
++#define WIDTH 60 // width of the screen
+ #define BOARD_HEIGHT (HEIGHT - 5) // height of the board
+ #define BOARD_WIDTH 15 // width of the board
+ #define EXTRA_BONUS // if defined, you get a bonus for every brick
+diff --git a/screen.c b/screen.c
+index 80b4271..9e230ef 100644
+--- a/screen.c
++++ b/screen.c
+@@ -36,7 +36,7 @@ char init_screen()
+ 	if(x < WIDTH || y < HEIGHT)
+ 	{
+ 		endwin();
+-		printf("ERROR, your terminal is too small. (min %ux%u)\n", WIDTH, HEIGHT);
++		printf("ERROR, your terminal is too small (%u,%u). (min %ux%u)\n", x, y, WIDTH, HEIGHT);
+ 		return 1;
+ 	}
+ 	clear();
+@@ -96,7 +96,7 @@ void destroy_board_win(WINDOW *win)
+ WINDOW *create_preview_win()
+ {
+ 	WINDOW *win;
+-	win = create_win(6, 12, 3, BOARD_WIDTH * 2 + 2);
++	win = create_win(6, 12, 0, BOARD_WIDTH * 2 + 2);
+ 	return win;
+ }
+ 
+@@ -108,7 +108,7 @@ void destroy_preview_win(WINDOW *win)
+ WINDOW *create_score_win()
+ {
+ 	WINDOW *win;
+-	win = create_win(14, 12, 9, BOARD_WIDTH * 2 + 2);
++	win = create_win(14, 12, 6, BOARD_WIDTH * 2 + 2);
+ 	return win;
+ }
+ 
