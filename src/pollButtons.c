@@ -8,7 +8,7 @@
 #define	NUM_BUTTONS 4u
 
 static struct pollfd s_stPollFds[NUM_BUTTONS];
-static const unsigned int s_kauiButtonIds[NUM_BUTTONS] = { 412, 413, 414, 415 };
+static const unsigned int s_kauiButtonIds[NUM_BUTTONS] = { 1017, 1018, 1019, 1020 };
 static unsigned	int s_auiButtonValues[NUM_BUTTONS] = { 1, 1, 1, 1 };
 static char s_aacPathToValueFile[NUM_BUTTONS][100];
 
@@ -33,7 +33,7 @@ static void s_vGetPathToGpioFile(char *acFilename, const char *kacGpioFile,
 
 static void s_vSetupButtons(void)
 {
-  char acButtonIdString[4];
+  char acButtonIdString[5];
   char acPathToEdgeFile[100];
   char acPathToDirectionFile[100];
   
@@ -53,7 +53,7 @@ static void s_vSetupButtons(void)
 int main()
 {
   int iFd, iPollresult;
-  char acBuffer[10];
+  char acBuffer[11];
 
   // initialize variables and gpio
   s_vSetupButtons();
